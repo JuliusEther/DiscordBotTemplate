@@ -1,4 +1,4 @@
 class Settings:
 	TOKEN = ""
 	COMMAND_PREFIX = "!"
-	
+	WORKER_EVENTLOOP_INTERVAL_SECONDS = 10.0
