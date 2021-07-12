@@ -1,14 +1,17 @@
 import asyncio
+from logging import Logger
+
+from discord.ext.commands import Bot
 
 from settings import Settings
 
 class Worker:
 
-	_logger = None
+	_logger:Logger = None
 	_bot = None
 
 	@classmethod
-	async def Init(cls, bot, logger):
+	async def Init(cls, bot:Bot , logger:Logger):
 		cls._logger = logger
 		cls._bot = bot
 		await cls._EventLoop()

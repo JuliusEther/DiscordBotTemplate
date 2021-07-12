@@ -1,19 +1,20 @@
 import asyncio
+from logging import Logger
 
-from discord.ext import commands
+from discord.ext.commands import Bot
 
 from bot.worker import Worker
 from settings import Settings
 
 class Core:
 
-	_bot = None
-	_logger = None
+	_bot:Bot = None
+	_logger:Logger = None
 
 	@classmethod
-	def Init(cls, logger):
+	def Init(cls, logger:Logger):
 		cls._logger = logger
-		cls._bot = commands.Bot(command_prefix=Settings.COMMAND_PREFIX)
+		cls._bot = Bot(command_prefix=Settings.COMMAND_PREFIX)
 		
 		cls.Process()
 

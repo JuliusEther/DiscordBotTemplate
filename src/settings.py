@@ -2,3 +2,12 @@ class Settings:
 	TOKEN = ""
 	COMMAND_PREFIX = "!"
 	WORKER_EVENTLOOP_INTERVAL_SECONDS = 10.0
+
+	LOG_FILE_OUT = True
+	LOG_FILE_LEVEL = "INFO"
+	LOG_FILEPATH = "./logs/"
+	LOG_FILENAME_BASE = "bot.log"
+
+	LOG_STD_ERR = True
+	LOG_STD_ERR = "INFO"
+	
