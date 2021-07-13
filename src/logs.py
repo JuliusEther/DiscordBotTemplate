@@ -1,4 +1,4 @@
-from logging import Logger, StreamHandler, getLogger
+from logging import Logger, StreamHandler, getLogger, Formatter
 from logging.handlers import TimedRotatingFileHandler
 import sys
 
@@ -17,12 +17,14 @@ class Logs:
             filehandler.when = "MIDNIGHT"
             filehandler.encoding = "UTF-8"
             filehandler.setLevel(Settings.LOG_FILE_LEVEL)
+            filehandler.setFormatter(Formatter(Settings.LOG_FORMAT, Settings.LOG_DATETIME_FORMAT))
 
             cls._logger.addHandler(filehandler)
 
         if Settings.LOG_STD_ERR:
             stderrhandler = StreamHandler(sys.stderr)
             stderrhandler.setLevel(Settings.LOG_STD_ERR)
+            stderrhandler.setFormatter(Formatter(Settings.LOG_FORMAT, Settings.LOG_DATETIME_FORMAT))
 
             cls._logger.addHandler(stderrhandler)
 

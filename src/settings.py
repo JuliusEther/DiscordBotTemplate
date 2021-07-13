@@ -11,3 +11,5 @@ class Settings:
 	LOG_STD_ERR = True
 	LOG_STD_ERR = "INFO"
 	
+	LOG_FORMAT = r"%(asctime)s.%(msecs)03d [%(levelname)-8s] (%(filename)s:%(lineno)s): %(message)s"
+	LOG_DATETIME_FORMAT = r"%Y-%m-%d %H:%M:%S"
