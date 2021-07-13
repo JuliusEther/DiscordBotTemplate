@@ -1,6 +1,7 @@
 from logging import Logger, StreamHandler, getLogger, Formatter
 from logging.handlers import TimedRotatingFileHandler
 import sys
+import os
 
 from settings import Settings
 
@@ -13,7 +14,7 @@ class Logs:
         cls._logger = getLogger(__name__)
 
         if Settings.LOG_FILE_OUT:
-            filehandler = TimedRotatingFileHandler(f"{Settings.LOG_FILEPATH}/{Settings.LOG_FILENAME_BASE}")
+            filehandler = TimedRotatingFileHandler(os.path.join(Settings.LOG_FILEPATH, Settings.LOG_FILENAME_BASE))
             filehandler.when = "MIDNIGHT"
             filehandler.encoding = "UTF-8"
             filehandler.setLevel(Settings.LOG_FILE_LEVEL)
