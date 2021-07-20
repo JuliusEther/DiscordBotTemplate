@@ -275,4 +275,4 @@ dmypy.json
 cython_debug/
 
 # Log Directory
-/log
+/logs
